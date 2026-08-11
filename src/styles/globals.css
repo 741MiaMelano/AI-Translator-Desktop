@@ -1,0 +1,379 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   设计语言：黄铜与石墨（Brass & Graphite）
+
+   原则
+   1. 平面优先。表面不叠渐变、不打高光；层级由 1px 实色描边和
+      底色差承担，不由阴影和内发光承担。
+   2. 黄铜是唯一重点色，只表示「主操作」和「当前选中」两件事。
+      语义色（成功 / 注意 / 失败）与重点色分离。
+   3. 圆角三档、阴影一档、字重三档。档位越少越像精密器械。
+
+   类名全部沿用旧名，只重新定义取值，因此调用方无需改动。
+   ============================================================ */
+
+:root {
+  --font-body: "Microsoft YaHei UI", "PingFang SC", "Noto Sans SC", "Segoe UI", sans-serif;
+  --font-display: "Microsoft YaHei UI", "PingFang SC", "Noto Sans SC", "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, "Cascadia Mono", Consolas, "SF Mono", monospace;
+
+  /* 纸与石墨：暖偏中性，和黄铜同源，所以灰不显脏 */
+  --color-bg-main: #f2ede4;
+  --color-bg-card: #fcfaf6;
+  --color-bg-card-soft: #f6f1e8;
+  --color-sidebar: #1a1714;
+  --color-sidebar-soft: #262119;
+  --color-text-main: #221e19;
+  --color-text-muted: #5a5249;
+  --color-text-light: #ede4d5;
+
+  /* 黄铜：降饱和、降亮度，从「涂层」变成「刻度」 */
+  --color-gold: #9c6f2b;
+  --color-gold-light: #d5a45b;
+  --color-gold-dark: #7a5424;
+  --color-gold-wash: #f3e7d2;
+
+  /* 描边用实色。半透明描边叠在多层表面上颜色不可预测 */
+  --color-border: #e2dacb;
+  --color-border-strong: #d0c4b0;
+
+  --color-success: #3f7d52;
+  --color-warning: #a2731e;
+  --color-danger: #a63d38;
+  --color-info: #3d6491;
+
+  --color-success-wash: #e5efe6;
+  --color-warning-wash: #f6ead2;
+  --color-danger-wash: #f7e1df;
+
+  /* 圆角三档：徽章 / 控件 / 卡片，外加一档窗体级 */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+  --radius-xl: 12px;
+
+  /* 阴影一档。旧版四层叠加是「腻」的主要来源之一 */
+  --shadow-card: 0 1px 2px rgba(46, 34, 18, 0.06);
+  --shadow-soft: 0 1px 2px rgba(46, 34, 18, 0.04);
+  --shadow-pop: 0 4px 14px rgba(46, 34, 18, 0.1);
+  /* 选中态是一圈描边，不是发光 */
+  --shadow-gold: 0 0 0 1px rgba(156, 111, 43, 0.45);
+  /* 旧版每个控件都有的内高光，整体取消 */
+  --control-inset: none;
+}
+
+.dark {
+  --color-bg-main: #16130f;
+  --color-bg-card: #201c17;
+  --color-bg-card-soft: #282219;
+  --color-sidebar: #100e0c;
+  --color-sidebar-soft: #1e1a15;
+  --color-text-main: #f0e8db;
+  --color-text-muted: #b3a896;
+  --color-text-light: #ede4d5;
+
+  --color-gold: #d5a45b;
+  --color-gold-light: #e7c288;
+  --color-gold-dark: #d5a45b;
+  --color-gold-wash: #2b2217;
+
+  --color-border: #302a22;
+  --color-border-strong: #40382d;
+
+  --color-success: #6fae7f;
+  --color-warning: #d2a24e;
+  --color-danger: #d4726c;
+  --color-info: #7ea3cd;
+
+  --color-success-wash: #1b2a1f;
+  --color-warning-wash: #2c2213;
+  --color-danger-wash: #2c1917;
+
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-pop: 0 4px 14px rgba(0, 0, 0, 0.5);
+  --shadow-gold: 0 0 0 1px rgba(213, 164, 91, 0.5);
+}
+
+[data-accent="green"] {
+  --color-gold: #2f7d52;
+  --color-gold-light: #7fc39c;
+  --color-gold-dark: #245f3f;
+  --color-gold-wash: #e2efe7;
+}
+
+[data-accent="blue"] {
+  --color-gold: #2f6ab5;
+  --color-gold-light: #86b4ec;
+  --color-gold-dark: #24528c;
+  --color-gold-wash: #e1eaf6;
+}
+
+[data-accent="purple"] {
+  --color-gold: #6b4cb8;
+  --color-gold-light: #a894e8;
+  --color-gold-dark: #533a92;
+  --color-gold-wash: #ebe6f8;
+}
+
+[data-accent="red"] {
+  --color-gold: #a63d38;
+  --color-gold-light: #d98d89;
+  --color-gold-dark: #85302b;
+  --color-gold-wash: #f7e3e2;
+}
+
+.dark[data-accent] {
+  --color-gold-dark: var(--color-gold-light);
+}
+
+.dark[data-accent="green"] { --color-gold: #6fae7f; --color-gold-wash: #1b2a1f; }
+.dark[data-accent="blue"] { --color-gold: #7ea3cd; --color-gold-wash: #17222c; }
+.dark[data-accent="purple"] { --color-gold: #a894e8; --color-gold-wash: #221c2e; }
+.dark[data-accent="red"] { --color-gold: #d4726c; --color-gold-wash: #2c1917; }
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100vh;
+}
+
+body {
+  margin: 0;
+  min-width: 0;
+  overflow: hidden;
+  color: var(--color-text-main);
+  /* 平底。旧版这里叠了四层 radial/linear gradient */
+  background: var(--color-bg-main);
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+/* ------------------------------------------------------------
+   中文断行
+
+   旧版对 p / button / a / td 一律 `overflow-wrap: anywhere`，
+   这正是截图里「草稿」被拆成「草／稿」、「查看」拆成「查／看」、
+   「CUDA」拆成「CUD／A」、「Token-only」拆成「Toke／n-only」的原因。
+
+   现在：正文允许在词边界折行；按钮、徽章、标签一律不拆词。
+   长哈希这类无空格长串仍然可以断，避免撑破容器。
+   ------------------------------------------------------------ */
+.app-surface p,
+.app-surface td {
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+.app-surface button,
+.app-surface a,
+.app-surface label,
+.app-surface th {
+  overflow-wrap: normal;
+  word-break: keep-all;
+}
+
+/* 需要强制断的长串（hash、URL、路径）显式标注 */
+.break-any {
+  overflow-wrap: anywhere;
+  word-break: break-all;
+}
+
+/* 数字列对齐 */
+.tabular {
+  font-variant-numeric: tabular-nums;
+  font-family: var(--font-mono);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-strong);
+  border: 3px solid transparent;
+  border-radius: 999px;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted);
+  background-clip: content-box;
+}
+
+/* ------------------------------------------------------------
+   表面
+
+   以下每个类旧版都是多层渐变 + 多层阴影 + 伪元素高光。
+   现在一律平涂 + 1px 描边。类名保持不变，调用方无需改动。
+   ------------------------------------------------------------ */
+
+.app-surface {
+  position: relative;
+  isolation: isolate;
+}
+
+/* 侧栏 */
+.subtle-texture {
+  background: var(--color-sidebar);
+}
+
+/* 内容区底纹：取消。保留类名以免调用方报错 */
+.paper-texture {
+  background-image: none;
+}
+
+.desktop-window-frame {
+  border: 1px solid var(--color-border-strong);
+}
+
+.dark .desktop-window-frame {
+  border-color: var(--color-border);
+}
+
+.material-card {
+  position: relative;
+  background: var(--color-bg-card);
+}
+
+.metal-gold {
+  background: var(--color-gold);
+  color: #fffcf5;
+}
+
+.dark .metal-gold {
+  color: #1a1409;
+}
+
+.dark-tool-surface {
+  background: var(--color-sidebar-soft);
+}
+
+.control-surface {
+  box-shadow: none;
+}
+
+.carved-panel {
+  position: relative;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-bg-card-soft);
+}
+
+.workbench-surface {
+  background: var(--color-bg-card-soft);
+}
+
+.inspector-value {
+  min-height: 34px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-card-soft);
+  box-shadow: none;
+}
+
+.slab-button {
+  min-height: 36px;
+  border-radius: var(--radius-md);
+}
+
+.top-status-pill {
+  backdrop-filter: none;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.dark input.control-surface,
+.dark select.control-surface,
+.dark textarea.control-surface,
+.dark .top-status-pill {
+  background-color: var(--color-bg-card-soft);
+  color: var(--color-text-main);
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: #857b6d;
+}
+
+@media (max-width: 1100px) {
+  .app-sidebar {
+    width: 208px !important;
+    overflow-y: auto;
+    padding: 0.75rem !important;
+  }
+
+  .app-main {
+    margin-left: 208px !important;
+  }
+
+  .app-topbar {
+    left: 208px !important;
+    padding-inline: 0.75rem !important;
+  }
+
+  .app-content-scroll {
+    padding-inline: 0.75rem !important;
+  }
+
+  .bottom-action-dock {
+    flex-wrap: wrap;
+    height: auto;
+    min-height: 56px;
+    padding-block: 0.5rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .app-sidebar {
+    width: 180px !important;
+  }
+
+  .app-sidebar h1 {
+    font-size: 0.875rem;
+  }
+
+  .app-main {
+    margin-left: 180px !important;
+  }
+
+  .app-topbar {
+    left: 180px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

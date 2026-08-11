@@ -1,0 +1,13 @@
+NVIDIA CUDA Toolkit 12.4 Redistributable Notice
+
+The optional whisper.cpp CUDA runtime contains selected CUDA Runtime, cuBLAS,
+cuBLASLt, NVBLAS, and NVRTC DLL families listed as redistributable components
+in Attachment A of the NVIDIA CUDA Toolkit 12.4 EULA.
+
+Pinned license terms:
+https://docs.nvidia.com/cuda/archive/12.4.0/eula/index.html
+
+This notice records the reviewed license boundary; it does not replace or
+modify NVIDIA's license terms. The application must distribute this notice,
+the pinned EULA reference, and the whisper.cpp MIT notice with the optional
+CUDA runtime. A missing notice keeps that runtime out of the ready state.

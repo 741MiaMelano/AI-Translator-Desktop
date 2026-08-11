@@ -1,0 +1,4 @@
+source_language	target_language	source	target	part_of_speech	domain	tags	note	enabled
+en-US	zh-CN	DeepSeek	深度求索	proper noun	AI	model|translation	用于测试重复项跳过	true
+en-US	zh-CN	GPU	图形处理器	abbreviation	hardware	AI|video	硬件术语	true
+ko-KR	zh-CN	자막	字幕	noun	video	caption|review	韩中示例	true

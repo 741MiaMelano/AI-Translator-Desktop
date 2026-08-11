@@ -1,0 +1,13 @@
+FFmpeg redistribution notice
+
+This package contains FFmpeg built from source commit 998de74adf861c26df557e220996faa959419549.
+FFmpeg is licensed primarily under LGPL-2.1-or-later. This build does not use
+--enable-gpl or --enable-nonfree. It is dynamically linked to the accompanying
+FFmpeg DLLs and to libass 0.17.5. libass uses dynamically linked
+FreeType 2.13.3, FriBidi 1.0.16, and HarfBuzz
+10.2.0. Windows font discovery uses DirectWrite/GDI; Fontconfig is
+not included.
+
+License texts are staged beside this notice: FFmpeg LGPL/FFmpeg-LICENSE,
+libass ISC, FreeType FTL, FriBidi LGPL-2.1-or-later, and HarfBuzz's COPYING
+rollup. This notice is not legal advice.

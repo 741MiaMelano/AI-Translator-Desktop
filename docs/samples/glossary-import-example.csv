@@ -1,0 +1,5 @@
+源语言,目标语言,原文,固定译文,词性,领域,标签,备注,启用
+en-US,zh-CN,DeepSeek,深度求索,专有名词,AI,模型|翻译,品牌固定译法,true
+en-US,zh-CN,"large, language model",大语言模型,名词,AI,LLM|术语,"第一行
+第二行",true
+ja-JP,zh-CN,字幕,字幕,名词,视频,字幕|校对,日中示例,false

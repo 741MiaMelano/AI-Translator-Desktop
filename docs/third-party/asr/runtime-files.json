@@ -1,0 +1,477 @@
+{
+  "schemaVersion": 1,
+  "selected": {
+    "engine": {
+      "id": "whisper.cpp",
+      "version": "1.9.1",
+      "tagCommit": "f049fff95a089aa9969deb009cdd4892b3e74916",
+      "license": "MIT"
+    },
+    "cpuRuntime": {
+      "archive": {
+        "name": "whisper-bin-x64.zip",
+        "size": 7982101,
+        "sha256": "7d8be46ecd31828e1eb7a2ecdd0d6b314feafd82163038ab6092594b0a063539",
+        "url": "https://github.com/ggml-org/whisper.cpp/releases/download/v1.9.1/whisper-bin-x64.zip"
+      },
+      "selectedFiles": [
+        {
+          "path": "ggml-base.dll",
+          "size": 656384,
+          "sha256": "8be6f3e06388b3a9aac75d29bec86363e2e2f5b0cee86ce6438866bcac0bcf86"
+        },
+        {
+          "path": "ggml-cpu-alderlake.dll",
+          "size": 790528,
+          "sha256": "323408503da53ccc67248b26d711f16d73d2d6239f7703a00a6a18b60ed5b8b8"
+        },
+        {
+          "path": "ggml-cpu-cannonlake.dll",
+          "size": 833536,
+          "sha256": "0f659d98b823bb871c7845787bba7485facd220099cf58aa773652b9b842ab2e"
+        },
+        {
+          "path": "ggml-cpu-cascadelake.dll",
+          "size": 830976,
+          "sha256": "8116b0e516134139de29400c536ecf06fe708ce1a078a96d30b562b30d524fbe"
+        },
+        {
+          "path": "ggml-cpu-haswell.dll",
+          "size": 791552,
+          "sha256": "e5925923a47672392f9e9c8c92e4b9b65ea473948bf4f568a0300a3a42485135"
+        },
+        {
+          "path": "ggml-cpu-icelake.dll",
+          "size": 830976,
+          "sha256": "b726d528bee0c811c6b2ad8775357379d651cabb487bbf800331697fe73da187"
+        },
+        {
+          "path": "ggml-cpu-sandybridge.dll",
+          "size": 783360,
+          "sha256": "1c49c64817233b2447ca305b41c66afa4bed31b058bc190a98af2a30cc703542"
+        },
+        {
+          "path": "ggml-cpu-skylakex.dll",
+          "size": 833536,
+          "sha256": "06082dc62a09a82fbba4aab49b2c049b96db84c5fc561a446a8ddbfb9b20bf86"
+        },
+        {
+          "path": "ggml-cpu-sse42.dll",
+          "size": 772096,
+          "sha256": "9a8f55ff1dfad231aa6250ac52c330c5bfa5c4c37691c8b591a68b52090ce40c"
+        },
+        {
+          "path": "ggml-cpu-x64.dll",
+          "size": 776704,
+          "sha256": "45ff644d301b8a1fffc7c5e3864205047360eb197814c7311f366d106bb5b19f"
+        },
+        {
+          "path": "ggml.dll",
+          "size": 67584,
+          "sha256": "db753141098018ab482796052a61e727ee0106cbc280f28397f6a111b5e667d7"
+        },
+        {
+          "path": "whisper-cli.exe",
+          "size": 479232,
+          "sha256": "58245314fb73b30fbd0cf0542c5c172e23f02b6eb7cad7b51e792439cf5e1755"
+        },
+        {
+          "path": "whisper-vad-speech-segments.exe",
+          "size": 362496,
+          "sha256": "69a4dbca1828afc3ffa17e5548ab4b96d866068c84db130980b764b15b15b2eb"
+        },
+        {
+          "path": "whisper.dll",
+          "size": 1366016,
+          "sha256": "b31690c12461517fe9774e61318ab63a69972b948151feed98b913be35f708b6"
+        }
+      ]
+    },
+    "cudaRuntime": {
+      "status": "source-and-file-audited; not executed because no NVIDIA GPU is present",
+      "archive": {
+        "name": "whisper-cublas-12.4.0-bin-x64.zip",
+        "size": 677887125,
+        "sha256": "106a2030eff8998e4ef320fe72e263a78449e9040386ee27c41ea80b001b601b",
+        "url": "https://github.com/ggml-org/whisper.cpp/releases/download/v1.9.1/whisper-cublas-12.4.0-bin-x64.zip",
+        "extractedBytes": 1209487872
+      },
+      "selectedFiles": [
+        {
+          "path": "cublas64_12.dll",
+          "size": 100033536,
+          "sha256": "e40202fe4223c1cd2d2dce7beec59e1ed61c7801bd827309183be9b50e358f4c"
+        },
+        {
+          "path": "cublasLt64_12.dll",
+          "size": 473551360,
+          "sha256": "2a896460bef60ed57ef32b0875812f355a6984e671d638bb632f5e8c1d7a831f"
+        },
+        {
+          "path": "cudart64_12.dll",
+          "size": 553984,
+          "sha256": "d28e42265da7462162a54da6b7a99ea4fa2caf8139d862bb500db875d0b32dfc"
+        },
+        {
+          "path": "ggml-base.dll",
+          "size": 641024,
+          "sha256": "2fdf1dea0cbab9d796d1a6c2bca672a3784c5faec2f1df2a3812212fa7409747"
+        },
+        {
+          "path": "ggml-cpu-alderlake.dll",
+          "size": 789504,
+          "sha256": "e9e27720fd14a33e86d13c1c8fee5a6afbf6a702e8472abb84cde23ccb4fb654"
+        },
+        {
+          "path": "ggml-cpu-cannonlake.dll",
+          "size": 833536,
+          "sha256": "63c136e823b85e519a2fd5d5085c7f28e9b07a7d23df99b6e2abd05dbcf4b47c"
+        },
+        {
+          "path": "ggml-cpu-cascadelake.dll",
+          "size": 830976,
+          "sha256": "9ab872d0e6e0dd6c5becd585cc84e1684ddfc603443904bc007af4a14e4a52fb"
+        },
+        {
+          "path": "ggml-cpu-haswell.dll",
+          "size": 790528,
+          "sha256": "cb4b01954b8b7bec4d891024192d3ed80c43102a4d17447ceefc4e183632df1f"
+        },
+        {
+          "path": "ggml-cpu-icelake.dll",
+          "size": 830976,
+          "sha256": "e97d8c4744c92e74190979a7d87a690d02d26373724d203722284e1cc837becb"
+        },
+        {
+          "path": "ggml-cpu-sandybridge.dll",
+          "size": 763904,
+          "sha256": "695b93cd2a2b4d30c60b722d0ff92870b308af82bf76be45a1ceb9aea8c3f611"
+        },
+        {
+          "path": "ggml-cpu-skylakex.dll",
+          "size": 833536,
+          "sha256": "37ee8dd2620aa8e350f50ccc22e3fd3995ef63edb696d42c12830b06ef81ff28"
+        },
+        {
+          "path": "ggml-cpu-sse42.dll",
+          "size": 751104,
+          "sha256": "25db1975a6664ae7f77db3bce0ee6f35d4894514717a39cf97f833bf56a7d2c4"
+        },
+        {
+          "path": "ggml-cpu-x64.dll",
+          "size": 752128,
+          "sha256": "b338f13d391470fd3dab3029df226f6306ca8140c69bc381725e39507b4d59f4"
+        },
+        {
+          "path": "ggml-cuda.dll",
+          "size": 564585984,
+          "sha256": "bdf5ba84f7014eaa8a4fae7a090ce222edf03432ef8d39d57fb615beea5c68ac"
+        },
+        {
+          "path": "ggml.dll",
+          "size": 66560,
+          "sha256": "3063b832600f58fb0e15af50a9ace99dbc15de02b8cb325df64390bfbcf22796"
+        },
+        {
+          "path": "nvblas64_12.dll",
+          "size": 331776,
+          "sha256": "e42a77405e6e4b1cc661dcfcddead35ec62dcf59c6f9be1a3b5fab73d1f4c616"
+        },
+        {
+          "path": "nvrtc-builtins64_124.dll",
+          "size": 5367808,
+          "sha256": "79888dba26c51475ea21fc7b47d2b9dd5b1ffaecc8e5ea22a49fa5f5a722eb43"
+        },
+        {
+          "path": "nvrtc64_120_0.dll",
+          "size": 44738048,
+          "sha256": "3aa3cd8aa10437e212760c0e1ed730807811ec3bc330216dbfde4b26211d2243"
+        },
+        {
+          "path": "whisper-cli.exe",
+          "size": 489984,
+          "sha256": "789fddb0f05c0c28043b3c4f3bcf15a0ae839df24292c60f90c4edb8d02a5ab5"
+        },
+        {
+          "path": "whisper.dll",
+          "size": 1308160,
+          "sha256": "0c76791ffda66ce58b6247424ca750a4b1bff12fd52928abb81de3037172ce1b"
+        }
+      ],
+      "license": "whisper.cpp/ggml MIT plus NVIDIA CUDA Toolkit 12.4 EULA for redistributable DLLs"
+    },
+    "models": [
+      {
+        "id": "small",
+        "repository": "ggerganov/whisper.cpp",
+        "revision": "5359861c739e955e79d9a303bcbc70fb988958b1",
+        "license": "MIT (OpenAI Whisper weights/model and repository model card)",
+        "files": [
+          {
+            "path": "ggml-small.bin",
+            "size": 487601967,
+            "sha256": "1be3a9b2063867b937e64e2ec7483364a79917e157fa98c5d94b5c1fffea987b"
+          }
+        ]
+      },
+      {
+        "id": "large-v3-turbo-q5_0",
+        "repository": "ggerganov/whisper.cpp",
+        "revision": "5359861c739e955e79d9a303bcbc70fb988958b1",
+        "license": "MIT (OpenAI Whisper weights/model and repository model card)",
+        "files": [
+          {
+            "path": "ggml-large-v3-turbo-q5_0.bin",
+            "size": 574041195,
+            "sha256": "394221709cd5ad1f40c46e6031ca61bce88931e6e088c188294c6d5a55ffa7e2"
+          }
+        ]
+      },
+      {
+        "id": "large-v3-turbo-q8_0",
+        "repository": "ggerganov/whisper.cpp",
+        "revision": "5359861c739e955e79d9a303bcbc70fb988958b1",
+        "license": "MIT (OpenAI Whisper weights/model and repository model card)",
+        "files": [
+          {
+            "path": "ggml-large-v3-turbo-q8_0.bin",
+            "size": 874188075,
+            "sha256": "317eb69c11673c9de1e1f0d459b253999804ec71ac4c23c17ecf5fbe24e259a1"
+          }
+        ]
+      },
+      {
+        "id": "large-v3-turbo",
+        "repository": "ggerganov/whisper.cpp",
+        "revision": "5359861c739e955e79d9a303bcbc70fb988958b1",
+        "license": "MIT (OpenAI Whisper weights/model and repository model card)",
+        "files": [
+          {
+            "path": "ggml-large-v3-turbo.bin",
+            "size": 1624555275,
+            "sha256": "1fc70f774d38eb169993ac391eea357ef47c88757ef72ee5943879b7e8e2bc69"
+          }
+        ]
+      },
+      {
+        "id": "large-v3-q5_0",
+        "repository": "ggerganov/whisper.cpp",
+        "revision": "5359861c739e955e79d9a303bcbc70fb988958b1",
+        "license": "MIT (OpenAI Whisper weights/model and repository model card)",
+        "files": [
+          {
+            "path": "ggml-large-v3-q5_0.bin",
+            "size": 1081140203,
+            "sha256": "d75795ecff3f83b5faa89d1900604ad8c780abd5739fae406de19f23ecd98ad1"
+          }
+        ]
+      },
+      {
+        "id": "large-v3",
+        "repository": "ggerganov/whisper.cpp",
+        "revision": "5359861c739e955e79d9a303bcbc70fb988958b1",
+        "license": "MIT (OpenAI Whisper weights/model and repository model card)",
+        "files": [
+          {
+            "path": "ggml-large-v3.bin",
+            "size": 3095033483,
+            "sha256": "64d182b440b98d5203c4f9bd541544d84c605196c4f7b845dfa11fb23594d1e2"
+          }
+        ]
+      }
+    ],
+    "vadModel": {
+      "id": "silero-vad-v6.2.0",
+      "repository": "ggml-org/whisper-vad",
+      "revision": "9ffd54a1e1ee413ddf265af9913beaf518d1639b",
+      "version": "6.2.0",
+      "license": "MIT (Silero VAD)",
+      "sourceUrl": "https://huggingface.co/ggml-org/whisper-vad/resolve/9ffd54a1e1ee413ddf265af9913beaf518d1639b/ggml-silero-v6.2.0.bin",
+      "files": [
+        {
+          "path": "ggml-silero-v6.2.0.bin",
+          "size": 885098,
+          "sha256": "2aa269b785eeb53a82983a20501ddf7c1d9c48e33ab63a41391ac6c9f7fb6987"
+        }
+      ]
+    }
+  },
+  "rejected": {
+    "engine": {
+      "id": "faster-whisper",
+      "version": "1.2.1",
+      "tagCommit": "65882eee9f5cdbeeb2d877f1131d48cf241b327d",
+      "wheel": {
+        "name": "faster_whisper-1.2.1-py3-none-any.whl",
+        "size": 1118909,
+        "sha256": "79a66ad50688c0b794dd501dc340a736992a6342f7f95e5811be60b5224a26a7"
+      },
+      "license": "MIT"
+    },
+    "benchmarkEnvironment": {
+      "python": "3.13.14",
+      "venvBytes": 288133737,
+      "note": "venv size excludes the separately installed base CPython runtime",
+      "packages": [
+        {
+          "name": "anyio",
+          "version": "4.14.2",
+          "license": "MIT"
+        },
+        {
+          "name": "av",
+          "version": "18.0.0",
+          "license": "BSD-3-Clause"
+        },
+        {
+          "name": "certifi",
+          "version": "2026.6.17",
+          "license": "MPL-2.0"
+        },
+        {
+          "name": "click",
+          "version": "8.4.2",
+          "license": "BSD-3-Clause"
+        },
+        {
+          "name": "colorama",
+          "version": "0.4.6",
+          "license": "BSD License"
+        },
+        {
+          "name": "ctranslate2",
+          "version": "4.8.1",
+          "license": "MIT"
+        },
+        {
+          "name": "faster-whisper",
+          "version": "1.2.1",
+          "license": "MIT"
+        },
+        {
+          "name": "filelock",
+          "version": "3.31.0",
+          "license": "MIT"
+        },
+        {
+          "name": "flatbuffers",
+          "version": "25.12.19",
+          "license": "Apache 2.0"
+        },
+        {
+          "name": "fsspec",
+          "version": "2026.6.0",
+          "license": "BSD-3-Clause"
+        },
+        {
+          "name": "h11",
+          "version": "0.16.0",
+          "license": "MIT"
+        },
+        {
+          "name": "hf-xet",
+          "version": "1.5.2",
+          "license": "Apache-2.0"
+        },
+        {
+          "name": "httpcore",
+          "version": "1.0.9",
+          "license": "BSD-3-Clause"
+        },
+        {
+          "name": "httpx",
+          "version": "0.28.1",
+          "license": "BSD-3-Clause"
+        },
+        {
+          "name": "huggingface_hub",
+          "version": "1.24.0",
+          "license": "Apache-2.0"
+        },
+        {
+          "name": "idna",
+          "version": "3.18",
+          "license": "BSD-3-Clause"
+        },
+        {
+          "name": "numpy",
+          "version": "2.5.1",
+          "license": "BSD-3-Clause AND 0BSD AND MIT AND Zlib AND CC0-1.0"
+        },
+        {
+          "name": "onnxruntime",
+          "version": "1.27.0",
+          "license": "MIT License"
+        },
+        {
+          "name": "packaging",
+          "version": "26.2",
+          "license": "Apache-2.0 OR BSD-2-Clause"
+        },
+        {
+          "name": "pip",
+          "version": "26.1.2",
+          "license": "MIT"
+        },
+        {
+          "name": "protobuf",
+          "version": "7.35.1",
+          "license": "3-Clause BSD License"
+        },
+        {
+          "name": "PyYAML",
+          "version": "6.0.3",
+          "license": "MIT"
+        },
+        {
+          "name": "setuptools",
+          "version": "83.0.0",
+          "license": "MIT"
+        },
+        {
+          "name": "tokenizers",
+          "version": "0.23.1",
+          "license": "Apache Software License"
+        },
+        {
+          "name": "tqdm",
+          "version": "4.69.0",
+          "license": "MPL-2.0 AND MIT"
+        },
+        {
+          "name": "typing_extensions",
+          "version": "4.16.0",
+          "license": "PSF-2.0"
+        }
+      ]
+    },
+    "model": {
+      "id": "small",
+      "repository": "Systran/faster-whisper-small",
+      "revision": "536b0662742c02347bc0e980a01041f333bce120",
+      "license": "MIT",
+      "files": [
+        {
+          "path": "config.json",
+          "size": 2370,
+          "sha256": "b55496ac7940a7ae47d2c01eab40edfd8701feec1229d9cce3b40014383fb828"
+        },
+        {
+          "path": "model.bin",
+          "size": 483546902,
+          "sha256": "3e305921506d8872816023e4c273e75d2419fb89b24da97b4fe7bce14170d671"
+        },
+        {
+          "path": "tokenizer.json",
+          "size": 2203239,
+          "sha256": "fb7b63191e9bb045082c79fd742a3106a12c99513ab30df4a0d47fa6cb6fd0ab"
+        },
+        {
+          "path": "vocabulary.txt",
+          "size": 459861,
+          "sha256": "34ce3fe1c5041027b3f8d42912270993f986dbc4bb34cf27f951e34a1e453913"
+        }
+      ]
+    }
+  }
+}

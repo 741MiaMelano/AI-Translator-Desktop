@@ -1,0 +1,509 @@
+{
+  "schemaVersion": 1,
+  "status": "implemented-through-app-schema-v5-and-project-schema-v20",
+  "purpose": "Machine-readable SQLite ownership contract for the app database and each project container database.",
+  "databases": {
+    "app": {
+      "purpose": "Global workspace state that must follow the installation, not an individual project folder.",
+      "metadataTable": "app_meta",
+      "tables": [
+        {
+          "name": "app_meta",
+          "owns": ["ordinary app metadata key/value rows"],
+          "columns": ["key", "value", "updated_at"]
+        },
+        {
+          "name": "project_index",
+          "owns": ["recent project list", "project folder path", "listing cache"],
+          "columns": [
+            "id",
+            "title",
+            "container_path",
+            "source_file_name",
+            "media_kind",
+            "lifecycle",
+            "updated_at",
+            "latest_run_summary",
+            "trashed_at",
+            "archived_at"
+          ]
+        },
+        {
+          "name": "workspace_defaults",
+          "owns": ["new project defaults"],
+          "columns": [
+            "id",
+            "source_language",
+            "target_languages_json",
+            "provider",
+            "model",
+            "style_guide_id",
+            "glossary_id",
+            "output_format",
+            "budget_usd"
+          ]
+        },
+        {
+          "name": "resource_library",
+          "owns": ["global glossary entries", "global style guide entries", "global subtitle style presets", "global export presets"],
+          "payloadContract": "src/domain/resource-library.ts#ResourcePayloadByKind",
+          "contractStatus": "implemented-and-checked",
+          "columns": [
+            "id",
+            "kind",
+            "name",
+            "description",
+            "schema_version",
+            "revision",
+            "payload_json",
+            "updated_at"
+          ],
+          "notes": "App-owned records are always global. kind selects the matching ResourcePayloadByKind member stored in payload_json; schema_version and optimistic-concurrency revision are dedicated columns."
+        },
+        {
+          "name": "capability_config",
+          "owns": ["provider capability settings", "runtime probe cache", "bounded ASR device preference and detection summary", "non-secret credential reference"],
+          "columns": [
+            "id",
+            "provider_id",
+            "provider_name",
+            "kind",
+            "status",
+            "model_list_json",
+            "config_json",
+            "credential_ref",
+            "updated_at"
+          ]
+        },
+        {
+          "name": "task_queue",
+          "owns": ["global active task queue"],
+          "columns": [
+            "id",
+            "project_id",
+            "kind",
+            "label",
+            "detail",
+            "stage",
+            "status",
+            "progress",
+            "target_language_code",
+            "checkpoint_stage",
+            "last_error_code",
+            "retryable",
+            "run_snapshot_id",
+            "priority",
+            "sequence",
+            "attempt",
+            "request_json",
+            "pause_capability",
+            "created_at",
+            "updated_at"
+          ]
+        },
+        {
+          "name": "settings",
+          "owns": ["app settings rows"],
+          "columns": ["id", "group_name", "label", "value", "updated_at"]
+        }
+      ]
+    },
+    "project": {
+      "purpose": "Editable project state that must travel with the project container.",
+      "metadataTable": "project_meta",
+      "tables": [
+        {
+          "name": "project_meta",
+          "owns": [
+            "project identity",
+            "lifecycle",
+            "derived project DB version mirror in schema_version"
+          ],
+          "columns": [
+            "id",
+            "schema_version",
+            "title",
+            "media_kind",
+            "lifecycle",
+            "created_at",
+            "updated_at",
+            "trashed_at",
+            "archived_at",
+            "active_source_track_id",
+            "recent_run_ids_json",
+            "notes_json",
+            "pending_confirmations_json"
+          ],
+          "notes": "active_source_track_id is nullable when a Main Media Source exists and no candidate has been activated yet."
+        },
+        {
+          "name": "source_file",
+          "owns": ["source file reference", "copy/relink state", "bounded media probe summary", "media identity", "selected and confirmed stream ids"],
+          "columns": [
+            "id",
+            "source_file_name",
+            "original_path",
+            "project_relative_path",
+            "media_kind",
+            "no_source_media",
+            "relink_state",
+            "probe_summary_json",
+            "identity_json",
+            "selected_audio_stream_id",
+            "selected_subtitle_stream_id",
+            "confirmed_audio_stream_id",
+            "confirmed_subtitle_stream_id"
+          ],
+          "notes": "Single-row SSOT with id='primary'. original_path and resolved project_relative_path stay main/repository-only. probe_summary_json holds bounded MediaProbe and optional subtitle import summary; never raw ffprobe JSON. relink_state is available|missing|relink_required|invalid. confirmed_* distinguishes a resolved choice from an import-time recommendation."
+        },
+        {
+          "name": "project_config",
+          "owns": ["project translation choices", "resource snapshot references", "active project subtitle style"],
+          "columns": [
+            "source_language",
+            "target_languages_json",
+            "provider_id",
+            "model_id",
+            "glossary_snapshot_id",
+            "style_guide_snapshot_id",
+            "output_format",
+            "budget_usd",
+            "burn_video",
+            "copy_media_into_project",
+            "subtitle_style_json"
+          ]
+        },
+        {
+          "name": "source_tracks",
+          "owns": ["source track candidates", "active source track marker", "raw source-track assets", "source media stream links", "ASR run and segmentation provenance"],
+          "columns": [
+            "id",
+            "label",
+            "kind",
+            "language_state",
+            "default_language",
+            "is_active",
+            "summary",
+            "raw_asset_relative_path",
+            "source_stream_id",
+            "asr_run_id",
+            "segmentation_config_version",
+            "trashed_at",
+            "sort_order",
+            "created_at"
+          ]
+        },
+        {
+          "name": "target_tracks",
+          "owns": ["target language candidates", "review/export state"],
+          "columns": [
+            "id",
+            "source_track_id",
+            "language_code",
+            "language_label",
+            "status",
+            "is_active",
+            "delivery_label",
+            "last_human_action",
+            "snapshot_ids_json",
+            "qa_issues_json",
+            "trashed_at",
+            "trashed_with_source",
+            "sort_order"
+          ]
+        },
+        {
+          "name": "candidate_track_metadata",
+          "owns": ["candidate target track base-track relationship"],
+          "columns": ["target_track_id", "base_track_id"]
+        },
+        {
+          "name": "segments",
+          "owns": ["timeline", "segment identity", "effective source language", "ASR language evidence and manual override"],
+          "columns": [
+            "id",
+            "source_track_id",
+            "start_ms",
+            "end_ms",
+            "source_language",
+            "sort_order",
+            "segment_version",
+            "detected_language",
+            "language_confidence",
+            "language_detection_method",
+            "language_detection_version",
+            "manual_language",
+            "language_overlap_status"
+          ]
+        },
+        {
+          "name": "source_text_layers",
+          "owns": ["original source text", "normalized source text", "manual source override"],
+          "columns": ["segment_id", "original_text", "normalized_text", "manual_text"]
+        },
+        {
+          "name": "target_text_layers",
+          "owns": ["model target text", "post-processed target text", "manual target override", "stale sync state", "QA flags"],
+          "columns": [
+            "segment_id",
+            "language_code",
+            "model_text",
+            "post_processed_text",
+            "manual_text",
+            "previous_manual_text",
+            "locked",
+            "stale",
+            "qa_flags_json"
+          ]
+        },
+        {
+          "name": "candidate_target_text_layers",
+          "owns": ["candidate target text isolated from the active language layer"],
+          "columns": [
+            "target_track_id",
+            "segment_id",
+            "model_text",
+            "post_processed_text",
+            "manual_text",
+            "previous_manual_text",
+            "locked",
+            "stale",
+            "qa_flags_json",
+            "origin"
+          ]
+        },
+        {
+          "name": "editor_history",
+          "owns": ["restart-safe source manual and target replace undo/redo stacks"],
+          "columns": ["id", "undo_stack_json", "redo_stack_json"]
+        },
+        {
+          "name": "run_snapshots",
+          "owns": ["append-only run provenance"],
+          "columns": [
+            "id",
+            "project_id",
+            "source_track_id",
+            "target_language_code",
+            "provider_id",
+            "model_id",
+            "base_url_display",
+            "transport_mode",
+            "parameters_json",
+            "glossary_snapshot_id",
+            "style_guide_snapshot_id",
+            "resource_snapshot_json",
+            "resource_fingerprint",
+            "prompt_template_version",
+            "segment_version",
+            "price_config_version",
+            "created_at",
+            "cache_hits",
+            "estimated_cost_usd",
+            "reserved_cost_usd",
+            "actual_cost_usd",
+            "input_tokens",
+            "output_tokens",
+            "currency"
+          ]
+        },
+        {
+          "name": "asr_runs",
+          "owns": ["append-only completed ASR run provenance", "canonical artifact identity", "actual execution device"],
+          "columns": [
+            "id",
+            "operation_id",
+            "project_id",
+            "audio_stream_id",
+            "status",
+            "result_schema_version",
+            "engine_id",
+            "engine_version",
+            "runtime_id",
+            "runtime_version",
+            "model_id",
+            "model_version",
+            "model_hash",
+            "requested_device",
+            "actual_device",
+            "fallback_reason",
+            "language_mode",
+            "language_hint",
+            "parameters_json",
+            "canonicalizer_version",
+            "raw_artifact_relative_path",
+            "raw_artifact_sha256",
+            "raw_artifact_size_bytes",
+            "media_duration_ms",
+            "processing_duration_ms",
+            "raw_segment_count",
+            "word_count",
+            "detected_language",
+            "language_probability",
+            "warning_codes_json",
+            "song_activity_json",
+            "created_at",
+            "completed_at"
+          ]
+        },
+        {
+          "name": "asr_raw_segments",
+          "owns": ["validated canonical raw ASR segment timing and text"],
+          "columns": ["run_id", "segment_index", "start_ms", "end_ms", "text", "language", "language_probability"]
+        },
+        {
+          "name": "asr_words",
+          "owns": ["validated canonical ASR words", "paired raw timing repair evidence"],
+          "columns": [
+            "run_id",
+            "segment_index",
+            "word_index",
+            "start_ms",
+            "end_ms",
+            "text",
+            "probability",
+            "raw_start_ms",
+            "raw_end_ms",
+            "repair_codes_json"
+          ]
+        },
+        {
+          "name": "project_task_history",
+          "owns": ["append-only project task history copied from the global queue"],
+          "columns": [
+            "id",
+            "queue_task_id",
+            "kind",
+            "label",
+            "detail",
+            "stage",
+            "status",
+            "progress",
+            "target_language_code",
+            "checkpoint_stage",
+            "last_error_code",
+            "retryable",
+            "run_snapshot_id",
+            "sequence",
+            "attempt",
+            "created_at",
+            "updated_at",
+            "recorded_at"
+          ]
+        },
+        {
+          "name": "export_records",
+          "owns": ["export output history"],
+          "columns": [
+            "id",
+            "export_kind",
+            "target_language_code",
+            "format",
+            "path",
+            "created_at",
+            "source_track_id",
+            "target_track_id",
+            "track_status",
+            "delivery_status",
+            "destination_kind"
+          ]
+        },
+        {
+          "name": "resource_snapshots",
+          "owns": ["project-local copies of resource inputs used by runs"],
+          "payloadContract": "src/domain/resource-library.ts#ResourcePayloadByKind",
+          "contractStatus": "implemented-and-checked",
+          "columns": ["id", "resource_kind", "resource_name", "schema_version", "source_resource_id", "source_revision", "payload_json", "captured_at"],
+          "notes": "Project DB ownership supplies project identity. A global source requires paired source_resource_id/source_revision values, while project-local sources leave both null. Snapshots are append-only and ordinary project saves do not rewrite them."
+        }
+      ]
+    }
+  },
+  "domainConcepts": {
+    "Project": {
+      "database": "project",
+      "tables": ["project_meta", "source_file"]
+    },
+    "ProjectConfig": {
+      "database": "project",
+      "tables": ["project_config"]
+    },
+    "SourceTrack": {
+      "database": "project",
+      "tables": ["source_tracks"]
+    },
+    "TargetTrack": {
+      "database": "project",
+      "tables": ["target_tracks", "candidate_track_metadata"]
+    },
+    "Segment": {
+      "database": "project",
+      "tables": ["segments"]
+    },
+    "SourceTextLayers": {
+      "database": "project",
+      "tables": ["source_text_layers"]
+    },
+    "TargetTextLayers": {
+      "database": "project",
+      "tables": ["target_text_layers", "candidate_target_text_layers"]
+    },
+    "EditorHistory": {
+      "database": "project",
+      "tables": ["editor_history"]
+    },
+    "RunSnapshot": {
+      "database": "project",
+      "tables": ["run_snapshots"]
+    },
+    "AsrRun": {
+      "database": "project",
+      "tables": ["asr_runs", "asr_raw_segments", "asr_words"]
+    },
+    "ProjectTask": {
+      "database": "app",
+      "tables": ["task_queue"],
+      "projectHistoryTables": ["project_task_history"]
+    },
+    "WorkspaceDefaults": {
+      "database": "app",
+      "tables": ["workspace_defaults"]
+    },
+    "ResourceLibrary": {
+      "database": "app",
+      "tables": ["resource_library"]
+    },
+    "ResourceSnapshot": {
+      "database": "project",
+      "tables": ["resource_snapshots"]
+    },
+    "Capabilities": {
+      "database": "app",
+      "tables": ["capability_config"]
+    },
+    "Settings": {
+      "database": "app",
+      "tables": ["settings"]
+    }
+  },
+  "migrations": {
+    "versioning": "sqlite-user-version",
+    "directory": "migrations",
+    "filePattern": "NNN_name.sql",
+    "rule": "App and project databases each use PRAGMA user_version as the sole migration SSOT, apply NNN_name.sql files in continuous order, reject future versions, and may only be opened through the repository layer."
+  },
+  "invariants": [
+    "Segment is the only timeline source of truth.",
+    "Target text layers do not own timing.",
+    "Secrets never live in project databases.",
+    "App task_queue owns active work; project_task_history is append-only history.",
+    "Resource library entries are global; resource_snapshots are project-local run inputs.",
+    "Completed ASR runs, raw segments, and words are append-only; cancellation or failure creates no ASR row.",
+    "Each ASR candidate has one immutable run/config pair; repeated pairs deduplicate and different config versions coexist inactive.",
+    "ASR segment manual language overrides effective language without deleting detected evidence; low confidence and unsupported overlap remain pending.",
+    "source_file id=primary is the only Main Media Source SSOT; no parallel media shadow table.",
+    "A media draft may have zero or more inactive candidate SourceTracks while activeSourceTrackId is null; noSourceMedia must be false and a Main Media Source must exist.",
+    "When activeSourceTrackId is non-null, it must reference the exactly one active SourceTrack.",
+    "Pure subtitle projects must keep a real SourceTrack; empty tracks + null active cannot bypass no-source-media validation."
+  ]
+}

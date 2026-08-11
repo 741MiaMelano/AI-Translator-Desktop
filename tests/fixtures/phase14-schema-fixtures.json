@@ -1,0 +1,14 @@
+[
+  {
+    "name": "app-v1",
+    "database": "app",
+    "version": 1,
+    "seedId": "legacy-app-project"
+  },
+  {
+    "name": "project-v5",
+    "database": "project",
+    "version": 5,
+    "seedId": "legacy-project-v5"
+  }
+]
