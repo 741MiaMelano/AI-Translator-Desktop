@@ -1,0 +1,10 @@
+Qwen3-ASR and Qwen3-ForcedAligner
+Copyright 2026 Alibaba Cloud
+
+Upstream source: https://github.com/QwenLM/Qwen3-ASR
+Model repositories: https://huggingface.co/Qwen
+License: Apache License 2.0
+License text: https://www.apache.org/licenses/LICENSE-2.0
+
+This application downloads the selected model snapshots from the upstream
+repositories. The model revisions and file hashes are fixed in qwen-manifest.json.

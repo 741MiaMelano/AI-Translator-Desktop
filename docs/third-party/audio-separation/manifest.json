@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "engine": {
+    "id": "audio-separator",
+    "version": "0.44.5",
+    "requirement": "audio-separator[cpu]==0.44.5",
+    "repository": "karaokenerds/python-audio-separator",
+    "sourceUrl": "https://github.com/karaokenerds/python-audio-separator/tree/v0.44.5",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/karaokenerds/python-audio-separator/blob/v0.44.5/LICENSE",
+    "wheel": {
+      "fileName": "audio_separator-0.44.5-py3-none-any.whl",
+      "sizeBytes": 415089,
+      "sha256": "9db7d8ded987a74aec9d96be949b49c9068def69823abb59cabb6e6f88679ae7",
+      "sourceUrl": "https://files.pythonhosted.org/packages/24/44/7ff4a4a0f4b95af529b6d92132661e04199d8c10de049c96ec3691edb14d/audio_separator-0.44.5-py3-none-any.whl"
+    },
+    "notice": {
+      "relativePath": "licenses/AUDIO-SEPARATOR-MIT.txt",
+      "sizeBytes": 1350,
+      "sha256": "da90743526d79202755c14f203373299ebbd22802dbc3126403f6aa95d432ecb"
+    }
+  },
+  "sharedRuntime": {
+    "id": "qwen3-asr-transformers-cu128-x64",
+    "version": "0.0.6+torch2.11.0-cu128",
+    "platform": "win32",
+    "arch": "x64",
+    "device": "cuda",
+    "pythonVersion": "3.12.13",
+    "requirementsFile": "docs/third-party/asr/qwen-requirements-cu128.txt",
+    "entryPoint": "venv/Scripts/audio-separator.exe"
+  },
+  "model": {
+    "id": "vocal-separation-melband-v1",
+    "displayName": "MelBand RoFormer Vocals by KimberleyJSN",
+    "architecture": "melband-roformer",
+    "task": "vocals",
+    "format": "ckpt",
+    "repository": "KimberleyJSN/melbandroformer",
+    "revision": "ac9b0614ab3cd7f77219e18ba494dfd93956c348",
+    "modelHash": "87201f4d31afb5bc79993230fc49446918425574db48c01c405e44f365c7559e",
+    "sizeBytes": 913107844,
+    "license": "MIT",
+    "licenseUrl": "https://huggingface.co/KimberleyJSN/melbandroformer/blob/ac9b0614ab3cd7f77219e18ba494dfd93956c348/README.md",
+    "supportsCpu": true,
+    "supportsCuda": true,
+    "productStatus": "preview",
+    "stems": ["vocals", "other"],
+    "files": [
+      {
+        "relativePath": "vocals_mel_band_roformer.ckpt",
+        "role": "weight",
+        "sizeBytes": 913106900,
+        "sha256": "87201f4d31afb5bc79993230fc49446918425574db48c01c405e44f365c7559e",
+        "sourceUrl": "https://huggingface.co/KimberleyJSN/melbandroformer/resolve/ac9b0614ab3cd7f77219e18ba494dfd93956c348/MelBandRoformer.ckpt"
+      },
+      {
+        "relativePath": "vocals_mel_band_roformer.yaml",
+        "role": "config",
+        "sizeBytes": 944,
+        "sha256": "b958b29c8f7195f0d86bee6759a33980db675c4ecaf2fcaa80fa125828e6cd38",
+        "sourceUrl": "https://github.com/karaokenerds/python-audio-separator/releases/download/model-configs/vocals_mel_band_roformer.yaml"
+      },
+      {
+        "relativePath": "licenses/MELBAND-ROFORMER-MODEL-MIT-NOTICE.txt",
+        "role": "notice",
+        "sizeBytes": 1481,
+        "sha256": "8226de0017179060fd3bd6cae57736bd50702fa9c1f99689842127c10b7c40d5"
+      }
+    ]
+  },
+  "offlineCatalog": {
+    "relativePath": "download_checks.json",
+    "generatedBy": "backend/audio/vocal-separation-process.mjs",
+    "sizeBytes": 184,
+    "sha256": "1551783ffad2686fd8ad5b199442cac4a54fb428d9cca2d163bb93e8200309e7"
+  }
+}

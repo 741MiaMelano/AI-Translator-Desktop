@@ -1,0 +1,71 @@
+appId: local.desktop.ai.translator
+productName: AI Translator Desktop
+directories:
+  output: release
+electronDist: node_modules/electron/dist
+files:
+  - dist/**/*
+  - dist-electron/**/*
+  - backend/**/*
+  - shared/**/*
+  - package.json
+extraResources:
+  - from: LICENSE
+    to: LICENSE
+  - from: THIRD-PARTY-NOTICES.txt
+    to: THIRD-PARTY-NOTICES.txt
+  - from: migrations
+    to: migrations
+  - from: resources/ffmpeg/win32-x64
+    to: ffmpeg/win32-x64
+  - from: docs/third-party/ffmpeg/manifest.json
+    to: ffmpeg/manifest.json
+  - from: docs/third-party/asr/manifest.json
+    to: asr/manifest.json
+  - from: docs/third-party/asr/qwen-manifest.json
+    to: asr/qwen-manifest.json
+  - from: docs/third-party/asr/qwen-requirements-cu128.txt
+    to: docs/third-party/asr/qwen-requirements-cu128.txt
+  - from: backend/asr/qwen3-asr-sidecar.py
+    to: backend/asr/qwen3-asr-sidecar.py
+  - from: docs/third-party/asr/licenses
+    to: asr/licenses
+  - from: docs/third-party/audio-separation/manifest.json
+    to: audio-separation/manifest.json
+  - from: docs/third-party/audio-separation/licenses
+    to: audio-separation/licenses
+  - from: docs/third-party/song-classifier/manifest.json
+    to: song-classifier/manifest.json
+  - from: docs/third-party/song-classifier/licenses
+    to: song-classifier/licenses
+  - from: backend/audio/song-classifier-sidecar.py
+    to: backend/audio/song-classifier-sidecar.py
+  - from: resources/asr/vad/silero-v6.2.0
+    to: asr/vad/silero-v6.2.0
+  - from: release/asr-runtime-staging
+    to: asr/runtime/whisper-cpp-cpu-x64
+asar: true
+win:
+  icon: build/icon.ico
+  target:
+    - target: nsis
+      arch:
+        - x64
+nsis:
+  oneClick: true
+  perMachine: false
+  runAfterFinish: false
+  deleteAppDataOnUninstall: false
+  differentialPackage: false
+  artifactName: AI-Translator-Desktop-${version}-${arch}.${ext}
+portable:
+  artifactName: AI-Translator-Desktop.${ext}
+  # unpackDirName defaults to a build-time constant, and portable.nsi runs `RMDir /r $INSTDIR`
+  # on both entry and exit — so two overlapping launches delete each other's files and the app
+  # ends up running on a half-empty resources tree. `true` is the only value that leaves
+  # UNPACK_DIR_NAME undefined and routes $INSTDIR to the per-launch $PLUGINSDIR.
+  unpackDirName: true
+  # $PLUGINSDIR only exists after InitPluginsDir, which portable.nsi calls from .onGUIInit —
+  # and .onGUIInit is skipped in silent mode. Declaring a splash image is what keeps the
+  # wrapper out of silent mode, so this asset is required for unpackDirName: true to work.
+  splashImage: build/splash.bmp

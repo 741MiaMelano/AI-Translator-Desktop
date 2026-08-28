@@ -1,0 +1,136 @@
+{
+  "schemaVersion": 1,
+  "engine": {
+    "id": "qwen3-asr",
+    "version": "0.0.6",
+    "repository": "QwenLM/Qwen3-ASR",
+    "sourceUrl": "https://github.com/QwenLM/Qwen3-ASR",
+    "license": "Apache-2.0",
+    "licenseUrl": "https://github.com/QwenLM/Qwen3-ASR/blob/main/LICENSE"
+  },
+  "runtime": {
+    "id": "qwen3-asr-transformers-cu128-x64",
+    "version": "0.0.6+torch2.11.0-cu128",
+    "platform": "win32",
+    "arch": "x64",
+    "device": "cuda",
+    "pythonVersion": "3.12.13",
+    "requirementsFile": "docs/third-party/asr/qwen-requirements-cu128.txt",
+    "sidecarFile": "backend/asr/qwen3-asr-sidecar.py",
+    "bootstrap": {
+      "id": "uv-x86_64-pc-windows-msvc",
+      "version": "0.11.26",
+      "executable": "uv.exe",
+      "archive": {
+        "fileName": "uv-x86_64-pc-windows-msvc.zip",
+        "sizeBytes": 24928660,
+        "sha256": "4e1278ede866be6c0bf32d2f466cc6de7a9fb399ecf20c9ce2d186e52424be47",
+        "sourceUrl": "https://github.com/astral-sh/uv/releases/download/0.11.26/uv-x86_64-pc-windows-msvc.zip",
+        "entries": [
+          {
+            "archivePath": "uv.exe",
+            "relativePath": "uv.exe",
+            "sizeBytes": 73969152,
+            "sha256": "deeaa21aac3e3e40b3fa00788208aa9a319cefbb3c2aa598cf580565a82ebc34"
+          }
+        ],
+        "ignoredEntries": [
+          { "archivePath": "uvw.exe", "sizeBytes": 338432 },
+          { "archivePath": "uvx.exe", "sizeBytes": 337920 }
+        ]
+      }
+    }
+  },
+  "aligner": {
+    "id": "qwen3-forced-aligner-0.6b",
+    "displayName": "Qwen3 ForcedAligner 0.6B",
+    "repository": "Qwen/Qwen3-ForcedAligner-0.6B",
+    "revision": "c7cbfc2048c462b0d63a45797104fc9db3ad62b7",
+    "snapshotHash": "0cb41376f77d75b5d9975c5a9a3be3becabdcaabaaff2405a584076f6621b2c6",
+    "sourceBaseUrl": "https://huggingface.co/Qwen/Qwen3-ForcedAligner-0.6B/resolve/c7cbfc2048c462b0d63a45797104fc9db3ad62b7/",
+    "mirrorBaseUrl": "https://hf-mirror.com/Qwen/Qwen3-ForcedAligner-0.6B/resolve/c7cbfc2048c462b0d63a45797104fc9db3ad62b7/",
+    "sizeBytes": 1840013484,
+    "license": "Apache-2.0",
+    "files": [
+      { "relativePath": "chat_template.json", "role": "config", "sizeBytes": 1161, "sha256": "75a8cfca24f00de72d796fbfed6858fc9614ef3dabd8696684cc3bc03a9c58ff" },
+      { "relativePath": "config.json", "role": "config", "sizeBytes": 5982, "sha256": "d616c65d46c4b90bdc651b0a0963ea932732241140f337f9bb6b0335a9c8ef09" },
+      { "relativePath": "generation_config.json", "role": "config", "sizeBytes": 115, "sha256": "948d089b23bca1d214e768d59c4438365665f52ec6d33678f4062206b3fbbb8c" },
+      { "relativePath": "merges.txt", "role": "tokenizer", "sizeBytes": 1671853, "sha256": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5" },
+      { "relativePath": "model.safetensors", "role": "weight", "sizeBytes": 1835544544, "sha256": "47831d0e82f96b20e9034dba01a075ee06436654719f6a68289e49f1b65ce0e7" },
+      { "relativePath": "preprocessor_config.json", "role": "config", "sizeBytes": 330, "sha256": "45e120a4eda2c20c5d7f2ea9354e63536bf35e27aa573fb7cdf78017b378770d" },
+      { "relativePath": "tokenizer_config.json", "role": "tokenizer", "sizeBytes": 12666, "sha256": "3ab80063f8511deb9566e6ad438d17b7a6277fcffd52d92854112f19d36bd81c" },
+      { "relativePath": "vocab.json", "role": "tokenizer", "sizeBytes": 2776833, "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910" },
+      { "relativePath": "licenses/QWEN3-ASR-APACHE-2.0-NOTICE.txt", "role": "notice", "sizeBytes": 409, "sha256": "f9f31b88a5647bc08edc63ac8eede2615fd214e485b03571006ddd628b272848" }
+    ]
+  },
+  "models": [
+    {
+      "id": "qwen3-asr-0.6b",
+      "displayName": "Qwen3-ASR 0.6B",
+      "family": "qwen3-asr",
+      "variant": "0.6b",
+      "format": "safetensors",
+      "repository": "Qwen/Qwen3-ASR-0.6B",
+      "revision": "5eb144179a02acc5e5ba31e748d22b0cf3e303b0",
+      "snapshotHash": "390823c69b268f910fcb0bd8152d60cd3c47651ca220aaea8217bacdaab3f495",
+      "sourceBaseUrl": "https://huggingface.co/Qwen/Qwen3-ASR-0.6B/resolve/5eb144179a02acc5e5ba31e748d22b0cf3e303b0/",
+      "mirrorBaseUrl": "https://hf-mirror.com/Qwen/Qwen3-ASR-0.6B/resolve/5eb144179a02acc5e5ba31e748d22b0cf3e303b0/",
+      "sizeBytes": 1880560703,
+      "license": "Apache-2.0",
+      "minimumMemoryBytes": 8589934592,
+      "recommendedMemoryBytes": 12884901888,
+      "recommendedVramBytes": 4294967296,
+      "supportsCpu": false,
+      "supportsCuda": true,
+      "languageScope": "multilingual",
+      "timestampSupport": "forced-aligner",
+      "productStatus": "preview",
+      "files": [
+        { "relativePath": "chat_template.json", "role": "config", "sizeBytes": 1161, "sha256": "75a8cfca24f00de72d796fbfed6858fc9614ef3dabd8696684cc3bc03a9c58ff" },
+        { "relativePath": "config.json", "role": "config", "sizeBytes": 6193, "sha256": "76d3ae4601ce939830b2517f4a6cadb86cc51316c3900af6b020b051c21a478c" },
+        { "relativePath": "generation_config.json", "role": "config", "sizeBytes": 142, "sha256": "1da527824d81e07118facff437e03f2e24a23311e3bdeb2368973fe77e5f275c" },
+        { "relativePath": "merges.txt", "role": "tokenizer", "sizeBytes": 1671853, "sha256": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5" },
+        { "relativePath": "model.safetensors", "role": "weight", "sizeBytes": 1876091704, "sha256": "79d6cbd4c98c7bbffe9db2edac07f56cd6637d0d5944b27f6c2b8353840323ea" },
+        { "relativePath": "preprocessor_config.json", "role": "config", "sizeBytes": 330, "sha256": "45e120a4eda2c20c5d7f2ea9354e63536bf35e27aa573fb7cdf78017b378770d" },
+        { "relativePath": "tokenizer_config.json", "role": "tokenizer", "sizeBytes": 12487, "sha256": "4942d005604266809309cabc9f4e9cb89ce855d59b14681fdc0e1cc62ea26c4c" },
+        { "relativePath": "vocab.json", "role": "tokenizer", "sizeBytes": 2776833, "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910" },
+        { "relativePath": "licenses/QWEN3-ASR-APACHE-2.0-NOTICE.txt", "role": "notice", "sizeBytes": 409, "sha256": "f9f31b88a5647bc08edc63ac8eede2615fd214e485b03571006ddd628b272848" }
+      ]
+    },
+    {
+      "id": "qwen3-asr-1.7b",
+      "displayName": "Qwen3-ASR 1.7B",
+      "family": "qwen3-asr",
+      "variant": "1.7b",
+      "format": "safetensors",
+      "repository": "Qwen/Qwen3-ASR-1.7B",
+      "revision": "7278e1e70fe206f11671096ffdd38061171dd6e5",
+      "snapshotHash": "4c28840f69d8e9aa88475bdab3487d0fbb21ee4cb855e41a3dae7b8f53b7b928",
+      "sourceBaseUrl": "https://huggingface.co/Qwen/Qwen3-ASR-1.7B/resolve/7278e1e70fe206f11671096ffdd38061171dd6e5/",
+      "mirrorBaseUrl": "https://hf-mirror.com/Qwen/Qwen3-ASR-1.7B/resolve/7278e1e70fe206f11671096ffdd38061171dd6e5/",
+      "sizeBytes": 4703055333,
+      "license": "Apache-2.0",
+      "minimumMemoryBytes": 12884901888,
+      "recommendedMemoryBytes": 17179869184,
+      "recommendedVramBytes": 8589934592,
+      "supportsCpu": false,
+      "supportsCuda": true,
+      "languageScope": "multilingual",
+      "timestampSupport": "forced-aligner",
+      "productStatus": "preview",
+      "files": [
+        { "relativePath": "chat_template.json", "role": "config", "sizeBytes": 1161, "sha256": "75a8cfca24f00de72d796fbfed6858fc9614ef3dabd8696684cc3bc03a9c58ff" },
+        { "relativePath": "config.json", "role": "config", "sizeBytes": 6194, "sha256": "2e74a751548b8ad7d7526d29365ad8144c345d8b412b1152d25dc6698452712f" },
+        { "relativePath": "generation_config.json", "role": "config", "sizeBytes": 142, "sha256": "1da527824d81e07118facff437e03f2e24a23311e3bdeb2368973fe77e5f275c" },
+        { "relativePath": "merges.txt", "role": "tokenizer", "sizeBytes": 1671853, "sha256": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5" },
+        { "relativePath": "model-00001-of-00002.safetensors", "role": "weight", "sizeBytes": 4220320824, "sha256": "a4cd1f1a04d90b757dc7f7dd26254e69a013b19e80efe590a83c6a3bde8608d6" },
+        { "relativePath": "model-00002-of-00002.safetensors", "role": "weight", "sizeBytes": 478200688, "sha256": "6e0b9d9e09e2e0238e7ef3cc8a484ab387e91b90f1900bedf88bc92d7929ccfc" },
+        { "relativePath": "model.safetensors.index.json", "role": "config", "sizeBytes": 64821, "sha256": "f994739fe38e5210b9e3e8ce6c6307315e2ceac3cb630e7b7414d69dce520f60" },
+        { "relativePath": "preprocessor_config.json", "role": "config", "sizeBytes": 330, "sha256": "45e120a4eda2c20c5d7f2ea9354e63536bf35e27aa573fb7cdf78017b378770d" },
+        { "relativePath": "tokenizer_config.json", "role": "tokenizer", "sizeBytes": 12487, "sha256": "4942d005604266809309cabc9f4e9cb89ce855d59b14681fdc0e1cc62ea26c4c" },
+        { "relativePath": "vocab.json", "role": "tokenizer", "sizeBytes": 2776833, "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910" },
+        { "relativePath": "licenses/QWEN3-ASR-APACHE-2.0-NOTICE.txt", "role": "notice", "sizeBytes": 409, "sha256": "f9f31b88a5647bc08edc63ac8eede2615fd214e485b03571006ddd628b272848" }
+      ]
+    }
+  ]
+}

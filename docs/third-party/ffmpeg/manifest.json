@@ -1,0 +1,212 @@
+{
+  "schemaVersion": 1,
+  "upstreamVersion": "7.1.5-2-g998de74adf",
+  "provider": "project-pinned-wsl-mingw-recipe",
+  "recipe": {
+    "repositoryUrl": "https://github.com/741MiaMelano/AI-Translator-Desktop.git",
+    "buildScriptPath": "scripts/build-ffmpeg-wsl.sh",
+    "buildScriptSha256": "40c22c0b8d26be7218944d536acf560e1c9f15428a4ac50e4e351cc6001fb105",
+    "buildEnvironment": "Ubuntu 24.04.4 LTS on WSL 1; MinGW-w64 GCC/G++ 13-win32; Meson 1.7.2; Ninja 1.12.1; NASM 2.16.01; GNU Make 4.3",
+    "variant": "win64-lgpl-shared-libass"
+  },
+  "acquiredAt": "2026-07-23",
+  "sourceUrl": "https://github.com/FFmpeg/FFmpeg/archive/998de74adf861c26df557e220996faa959419549.zip",
+  "archive": {
+    "fileName": "ffmpeg-n7.1.5-2-g998de74adf-win64-lgpl-shared-libass.zip",
+    "sizeBytes": 13883444,
+    "sha256": "61a57937a7682698a45dee173186fa9b91811d51fd886e810cf095dd55074262",
+    "providerDigest": "sha256:61a57937a7682698a45dee173186fa9b91811d51fd886e810cf095dd55074262"
+  },
+  "platform": "win32-x64",
+  "configure": "--prefix=/ffmpeg-libass --target-os=mingw32 --arch=x86_64 --cross-prefix=x86_64-w64-mingw32- --pkg-config=pkg-config --enable-shared --disable-static --disable-autodetect --disable-debug --disable-doc --disable-ffplay --disable-network --disable-iconv --disable-zlib --disable-bzlib --disable-lzma --enable-libass",
+  "licenseClass": "LGPL-2.1-or-later",
+  "linkage": "dynamic",
+  "externalLibraries": [
+    {
+      "name": "libass",
+      "version": "0.17.5",
+      "license": "ISC",
+      "linkage": "dynamic",
+      "sourceUrl": "https://github.com/libass/libass/archive/refs/tags/0.17.5.tar.gz",
+      "configureFlag": "--enable-libass",
+      "noticePath": "licenses/LIBASS-ISC.txt"
+    },
+    {
+      "name": "FreeType",
+      "version": "2.13.3",
+      "license": "FTL",
+      "linkage": "dynamic",
+      "sourceUrl": "https://download.savannah.gnu.org/releases/freetype/freetype-2.13.3.tar.xz",
+      "requiredBy": "libass",
+      "noticePath": "licenses/FREETYPE-FTL.txt"
+    },
+    {
+      "name": "FriBidi",
+      "version": "1.0.16",
+      "license": "LGPL-2.1-or-later",
+      "linkage": "dynamic",
+      "sourceUrl": "https://github.com/fribidi/fribidi/archive/refs/tags/v1.0.16.tar.gz",
+      "requiredBy": "libass",
+      "noticePath": "licenses/FRIBIDI-LGPLv2.1.txt"
+    },
+    {
+      "name": "HarfBuzz",
+      "version": "10.2.0",
+      "license": "Old-MIT-style",
+      "linkage": "dynamic",
+      "sourceUrl": "https://github.com/harfbuzz/harfbuzz/archive/refs/tags/10.2.0.tar.gz",
+      "requiredBy": "libass",
+      "noticePath": "licenses/HARFBUZZ-COPYING.txt"
+    }
+  ],
+  "artifacts": [
+    {
+      "relativePath": "bin/ffmpeg.exe",
+      "role": "ffmpeg",
+      "sha256": "34ff89b2fc11a2fe47f8f7f544605ddf0ac9f7c206f284815c876477f5d41d9b",
+      "sizeBytes": 376832
+    },
+    {
+      "relativePath": "bin/ffprobe.exe",
+      "role": "ffprobe",
+      "sha256": "beae499bdb56fedd5175fb0e77f02ea676176655aa15aa6410496e6f45ee7e21",
+      "sizeBytes": 203264
+    },
+    {
+      "relativePath": "bin/avcodec-61.dll",
+      "role": "dll",
+      "sha256": "7c2ac6c36d101d2d9574cf215f67192e6cee363b3f57b92a30c2318fbd021599",
+      "sizeBytes": 16496729
+    },
+    {
+      "relativePath": "bin/avdevice-61.dll",
+      "role": "dll",
+      "sha256": "7faadd55c6e5945ac9f2ff5b38adbeb3dc1fe60b50a1c3d431a81e96e8b100ba",
+      "sizeBytes": 620732
+    },
+    {
+      "relativePath": "bin/avfilter-10.dll",
+      "role": "dll",
+      "sha256": "8f000c67a910d7d49a3f23fe6d6bc04f8976c6442b0b4d3109e9812e41f8ba53",
+      "sizeBytes": 4935576
+    },
+    {
+      "relativePath": "bin/avformat-61.dll",
+      "role": "dll",
+      "sha256": "d8b8626362e470070ab6f2c06c70ad975351a4e33191837f4edd18a06fe71811",
+      "sizeBytes": 2959545
+    },
+    {
+      "relativePath": "bin/avutil-59.dll",
+      "role": "dll",
+      "sha256": "23c629e36f10d72ba6b09c55a63b86bb25cd4509576008cc58913ded7450646c",
+      "sizeBytes": 1505942
+    },
+    {
+      "relativePath": "bin/libass-9.dll",
+      "role": "dll",
+      "sha256": "2c2de0cce6fcc7b2af4086baa243c587a04fedfa7f15987a519d50bda2379352",
+      "sizeBytes": 764778
+    },
+    {
+      "relativePath": "bin/libfreetype-6.dll",
+      "role": "dll",
+      "sha256": "c6c238fca8be1ed650e27797703e0a9ba17020dad34c516d2e3a702e58475b52",
+      "sizeBytes": 919128
+    },
+    {
+      "relativePath": "bin/libfribidi-0.dll",
+      "role": "dll",
+      "sha256": "3fee8d6d43cbb13f0171c0e00924e099c1540f998274574fcdb2a34f91d2c00f",
+      "sizeBytes": 210691
+    },
+    {
+      "relativePath": "bin/libharfbuzz-0.dll",
+      "role": "dll",
+      "sha256": "19dfbb4b5c3eb260119c20c450e0e3f6dded8e74b094bf0d5d02e1e1900c7357",
+      "sizeBytes": 1877840
+    },
+    {
+      "relativePath": "bin/libharfbuzz-subset-0.dll",
+      "role": "dll",
+      "sha256": "83addd766e0c89f0c7701f01422254bf425461ee0995a52ecea36483501411f7",
+      "sizeBytes": 2083497
+    },
+    {
+      "relativePath": "bin/swresample-5.dll",
+      "role": "dll",
+      "sha256": "5721294fddbcd92f8d17e57e151683a843ce14134bc7579c8ce77bed3f3c3fa0",
+      "sizeBytes": 247142
+    },
+    {
+      "relativePath": "bin/swscale-8.dll",
+      "role": "dll",
+      "sha256": "b20b0e7fc8f026a0915a8f794d85a9c8753fdb75df2474b7a8711c811795ccf9",
+      "sizeBytes": 876399
+    }
+  ],
+  "licenseFiles": [
+    {
+      "relativePath": "licenses/COPYING.LGPLv2.1.txt",
+      "sha256": "246041b6ecf9bc32d718a62c57877c78b5eb397b6467e74ed7ae2626ab189c30",
+      "sizeBytes": 26517
+    },
+    {
+      "relativePath": "licenses/FFmpeg-LICENSE.md",
+      "sha256": "cb48bf09a11f5fb576cddb0431c8f5ed0a60157a9ec942adffc13907cbe083f2",
+      "sizeBytes": 4376
+    },
+    {
+      "relativePath": "licenses/FREETYPE-FTL.txt",
+      "sha256": "08c135755dd589039470f1fdbb400daaabaaa50d0b366d19cebff4d22986baa1",
+      "sizeBytes": 6743
+    },
+    {
+      "relativePath": "licenses/FRIBIDI-LGPLv2.1.txt",
+      "sha256": "32434afcc8666ba060e111d715bfdb6c2d5dd8a35fa4d3ab8ad67d8f850d2f2b",
+      "sizeBytes": 26440
+    },
+    {
+      "relativePath": "licenses/HARFBUZZ-COPYING.txt",
+      "sha256": "ba8f810f2455c2f08e2d56bb49b72f37fcf68f1f4fade38977cfd7372050ad64",
+      "sizeBytes": 1971
+    },
+    {
+      "relativePath": "licenses/LIBASS-ISC.txt",
+      "sha256": "f7e30699d02798351e7f839e3d3bfeb29ce65e44efa7735c225464c4fd7dfe9c",
+      "sizeBytes": 755
+    }
+  ],
+  "noticeFiles": [
+    {
+      "relativePath": "licenses/SOURCE-AND-BUILD.txt",
+      "sha256": "ae917ea9c5e6ca982e6acc4a572e716aa0ead92743412f68e574399874d8f415",
+      "sizeBytes": 2114
+    },
+    {
+      "relativePath": "licenses/THIRD-PARTY-NOTICES.txt",
+      "sha256": "d0abb66364643068499cf60c873af9719acd0ccb3174566f71af2105272b78ec",
+      "sizeBytes": 666
+    }
+  ],
+  "sourceDelivery": {
+    "method": "exact-source-archives-and-pinned-build-recipe",
+    "reference": "https://github.com/FFmpeg/FFmpeg/archive/998de74adf861c26df557e220996faa959419549.zip",
+    "notes": "All FFmpeg, libass, FreeType, FriBidi, HarfBuzz, Meson, Ninja, and MinGW C++ package URLs and SHA-256 values are recorded in licenses/SOURCE-AND-BUILD.txt."
+  },
+  "authenticity": {
+    "method": "rebuild-from-pinned-recipe",
+    "trustAnchor": "Version-controlled manifest pins every source archive, the build recipe, staged file, and output archive by SHA-256."
+  },
+  "sbom": {
+    "componentName": "ffmpeg",
+    "componentVersion": "7.1.5-2-g998de74adf+libass-0.17.5",
+    "purl": "pkg:generic/ffmpeg@7.1.5?arch=x64&os=windows&revision=998de74adf861c26df557e220996faa959419549&libass=0.17.5"
+  },
+  "capabilities": {
+    "probe": true,
+    "textSubtitleExtract": true,
+    "softSubtitleMux": true,
+    "assBurn": true
+  }
+}

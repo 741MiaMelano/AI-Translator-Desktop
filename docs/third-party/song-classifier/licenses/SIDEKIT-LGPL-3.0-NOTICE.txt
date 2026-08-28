@@ -1,0 +1,13 @@
+SIDEKIT feature extraction notice
+=================================
+
+The optional song-classifier sidecar adapts the signal framing, filter-bank,
+and normalization procedure published by the SIDEKIT project.
+
+Source: https://github.com/DeepMine-ML/sidekit
+License: GNU Lesser General Public License, version 3 or any later version
+Included license texts: LGPL-3.0.txt and GPL-3.0.txt
+
+The adapted implementation is shipped as readable Python source at
+backend/audio/song-classifier-sidecar.py so recipients can inspect, modify,
+and replace it. No SIDEKIT model weights or binary artifacts are bundled.

@@ -1,0 +1,7 @@
+*.sh text eol=lf
+*.csv text eol=lf
+*.tsv text eol=lf
+resources/ffmpeg/win32-x64/** -text -whitespace
+docs/third-party/asr/licenses/** -text
+docs/third-party/audio-separation/licenses/** -text
+docs/third-party/song-classifier/licenses/** -text

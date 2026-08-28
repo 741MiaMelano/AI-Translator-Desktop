@@ -1,0 +1,245 @@
+AI Translator Desktop — Third-Party Notices
+============================================
+
+This file covers third-party material distributed with the application. The
+application itself is licensed under the MIT License; see LICENSE.
+
+
+Application JavaScript bundle
+-----------------------------
+
+lucide-react 0.468.0 — ISC
+Source: https://github.com/lucide-icons/lucide/tree/0.468.0/packages/lucide-react
+
+ISC License
+
+Copyright (c) for portions of Lucide are held by Cole Bemis 2013-2022 as part
+of Feather (MIT). All other copyright (c) for Lucide are held by Lucide
+Contributors 2022.
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted, provided that the above
+copyright notice and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+PERFORMANCE OF THIS SOFTWARE.
+
+
+react 19.2.7, react-dom 19.2.7, scheduler 0.27.0 — MIT
+Source: https://github.com/facebook/react
+
+MIT License
+
+Copyright (c) Meta Platforms, Inc. and affiliates.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
+react-router 7.18.1, react-router-dom 7.18.1 — MIT
+Source: https://github.com/remix-run/react-router
+
+MIT License
+
+Copyright (c) React Training LLC 2015-2019
+Copyright (c) Remix Software Inc. 2020-2021
+Copyright (c) Shopify Inc. 2022-2023
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
+cookie 1.1.1 — MIT
+Source: https://github.com/jshttp/cookie
+
+Copyright (c) 2012-2014 Roman Shtylman <shtylman@gmail.com>
+Copyright (c) 2015 Douglas Christopher Wilson <doug@somethingdoug.com>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
+set-cookie-parser 2.7.2 — MIT
+Source: https://github.com/nfriedly/set-cookie-parser
+
+Copyright (c) 2015 Nathan Friedly <nathan@nfriedly.com>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
+Desktop runtime
+---------------
+
+Electron 43.1.0 — MIT
+Source: https://github.com/electron/electron/tree/v43.1.0
+
+The packaged application places Electron's license at
+LICENSE.electron.txt and Chromium's complete third-party rollup at
+LICENSES.chromium.html next to the application executable.
+
+
+Bundled media runtime
+---------------------
+
+FFmpeg 7.1.5-2-g998de74adf — LGPL-2.1-or-later
+libass 0.17.5 — ISC
+FreeType 2.13.3 — FTL
+FriBidi 1.0.16 — LGPL-2.1-or-later
+HarfBuzz 10.2.0 — Old-MIT-style
+
+The exact source revisions, build configuration, source-delivery locations,
+artifact hashes, and component licenses are in:
+
+  resources/ffmpeg/win32-x64/licenses/
+  resources/ffmpeg/manifest.json
+
+The FFmpeg build is dynamically linked, does not use --enable-gpl or
+--enable-nonfree, and carries the full applicable license texts beside the
+binaries.
+
+
+ASR runtime and model
+---------------------
+
+whisper.cpp 1.9.1 — MIT
+OpenAI Whisper model weights — MIT
+Silero VAD 6.2.0 — MIT
+
+The standard package includes the pinned whisper.cpp CPU runtime and Silero
+VAD auxiliary model. Main Whisper models are downloaded separately after hash
+verification. Their exact notices are in:
+
+  resources/asr/licenses/WHISPER-CPP-MIT.txt
+  resources/asr/licenses/OPENAI-WHISPER-MIT.txt
+  resources/asr/licenses/SILERO-VAD-MIT.txt
+  resources/asr/manifest.json
+
+The optional CUDA 12.4 runtime is not part of the standard installer. If the
+user installs it, the verified runtime includes whisper.cpp's MIT notice and
+the NVIDIA CUDA Toolkit 12.4 redistributable notice. See:
+
+  resources/asr/licenses/NVIDIA-CUDA-12.4-NOTICE.txt
+  https://docs.nvidia.com/cuda/archive/12.4.0/eula/index.html
+
+Qwen3-ASR 0.6B / 1.7B and Qwen3 ForcedAligner 0.6B — Apache-2.0
+Source: https://github.com/QwenLM/Qwen3-ASR
+
+These Preview models, their shared aligner, and the CUDA/Python runtime are
+downloaded separately after manifest verification. See:
+
+  resources/asr/licenses/QWEN3-ASR-APACHE-2.0-NOTICE.txt
+  resources/asr/qwen-manifest.json
+
+
+Optional vocal-separation runtime and model
+-------------------------------------------
+
+audio-separator 0.44.5 - MIT
+Source: https://github.com/karaokenerds/python-audio-separator/tree/v0.44.5
+
+MelBand RoFormer vocals checkpoint by KimberleyJSN - MIT
+Source: https://huggingface.co/KimberleyJSN/melbandroformer/tree/ac9b0614ab3cd7f77219e18ba494dfd93956c348
+
+The model configuration is supplied by the audio-separator model-config
+release. audio-separator is based on the Ultimate Vocal Remover project; its
+authors request credit to UVR and its developers.
+
+The runtime package and model files are optional downloads and are not part of
+the standard installer. Their pinned versions, source URLs, sizes, hashes, and
+license evidence are recorded in:
+
+  resources/audio-separation/licenses/AUDIO-SEPARATOR-MIT.txt
+  resources/audio-separation/licenses/MELBAND-ROFORMER-MODEL-MIT-NOTICE.txt
+  resources/audio-separation/manifest.json
+
+
+Optional song/music classifier
+------------------------------
+
+inaSpeechSegmenter speech/music/noise model and architecture — MIT
+Source: https://github.com/ina-foss/inaSpeechSegmenter/tree/7a41b809c3cc6d8d36b24e70784779f8d16f7b5e
+
+The optional classifier downloads the pinned 3.1 MiB model only after user
+confirmation. The application loads the original Keras weights in an
+equivalent PyTorch network so it can reuse the existing local runtime without
+shipping TensorFlow. Signal feature extraction follows SIDEKIT and is covered
+by LGPL-3.0-or-later; the adapted Python source remains readable and
+replaceable in the package.
+
+h5py 3.15.1 — BSD-3-Clause
+Source: https://github.com/h5py/h5py/tree/3.15.1
+
+Pinned source, model hash, and notices:
+
+  resources/song-classifier/manifest.json
+  resources/song-classifier/licenses/INA-SPEECH-SEGMENTER-MIT.txt
+  resources/song-classifier/licenses/H5PY-BSD-3-CLAUSE.txt
+  resources/song-classifier/licenses/SIDEKIT-LGPL-3.0-NOTICE.txt
+  resources/song-classifier/licenses/LGPL-3.0.txt
+  resources/song-classifier/licenses/GPL-3.0.txt

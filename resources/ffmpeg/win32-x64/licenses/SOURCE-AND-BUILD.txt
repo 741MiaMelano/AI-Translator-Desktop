@@ -1,0 +1,25 @@
+FFmpeg corresponding source and build disclosure
+
+Source commit: 998de74adf861c26df557e220996faa959419549
+Source archive: https://github.com/FFmpeg/FFmpeg/archive/998de74adf861c26df557e220996faa959419549.zip
+Source archive SHA-256: 8add93552e8e3cc45a991296cfabfe5d002565997d201a7ee79903a979311ea8
+libass: https://github.com/libass/libass/archive/refs/tags/0.17.5.tar.gz
+libass SHA-256: fa286fc9ee1ba3b932703a3df7b8474d01dc8abe29ec69b6fa68781dc4bf7acc
+FreeType: https://download.savannah.gnu.org/releases/freetype/freetype-2.13.3.tar.xz
+FreeType SHA-256: 0550350666d427c74daeb85d5ac7bb353acba5f76956395995311a9c6f063289
+FriBidi: https://github.com/fribidi/fribidi/archive/refs/tags/v1.0.16.tar.gz
+FriBidi SHA-256: 5a1d187a33daa58fcee2ad77f0eb9d136dd6fa4096239199ba31e850d397e8a8
+HarfBuzz: https://github.com/harfbuzz/harfbuzz/archive/refs/tags/10.2.0.tar.gz
+HarfBuzz SHA-256: 11749926914fd488e08e744538f19329332487a6243eec39ef3c63efa154a578
+Meson build tool: https://github.com/mesonbuild/meson/archive/refs/tags/1.7.2.tar.gz
+Meson SHA-256: 3640ef596523393100df31ba790bc5fe732215e9711a66b673a21c4eb39bc8f1
+Ninja build tool: https://github.com/ninja-build/ninja/archive/refs/tags/v1.12.1.tar.gz
+Ninja SHA-256: 821bdff48a3f683bc4bb3b6f0b5fe7b2d647cf65d52aeb63328c91a6c6df285a
+MinGW C++ build tool package: https://archive.ubuntu.com/ubuntu/pool/universe/g/gcc-mingw-w64/g%2b%2b-mingw-w64-x86-64-win32_13.2.0-6ubuntu1%2b26.1_amd64.deb
+MinGW C++ package SHA-256: 82ff9a2137f31c16c8cc8dd63b39c1a14416e1246033c7246b8070b7383d189a
+Build recipe: scripts/build-ffmpeg-wsl.sh
+Build recipe SHA-256: 40c22c0b8d26be7218944d536acf560e1c9f15428a4ac50e4e351cc6001fb105
+Configure: --prefix=/ffmpeg-libass --target-os=mingw32 --arch=x86_64 --cross-prefix=x86_64-w64-mingw32- --pkg-config=pkg-config --enable-shared --disable-static --disable-autodetect --disable-debug --disable-doc --disable-ffplay --disable-network --disable-iconv --disable-zlib --disable-bzlib --disable-lzma --enable-libass
+
+The source archives and recipe above are sufficient to rebuild this package in
+the pinned environment recorded by the release manifest.
